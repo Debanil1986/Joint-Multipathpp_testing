@@ -7,8 +7,8 @@ Paper: https://storage.googleapis.com/waymo-uploads/files/research/2023%20Techni
 First we need to prepare data for training. The prerender script will convert the original data format into set of .npz files each containing the data for one scene. From code folder run
 ```
 python3 prerender/prerender.py \
-    --data_path /path/to/original/data \
-    --output_path /output/path/to/prerendered/data \
+    --data_path original/data \ 
+    --output_path prerendered/data \
     --config NCloseSegAndValidAgentRenderer
 ```
 The prerender module is completely self-contained.
