@@ -1,0 +1,21 @@
+{
+    "name": "Minimal Python Dev Container",
+    "build": {
+        "context": "..",
+        "dockerfile": "../Dockerfile"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {},
+        "ghcr.io/hspaans/devcontainer-features/pytest:1": {}
+    },
+    "settings": {
+        "python.pythonPath": "/usr/local/bin/python",
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "workspaceFolder": "/workspace"
+}

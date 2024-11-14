@@ -1,0 +1,30 @@
+# Use an official Python 3.11 image
+FROM python:3.11-slim
+
+# Create a new user and set up home directory
+RUN useradd -m nonrootuser
+
+# Install essential tools and libraries
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Switch to the non-root user
+USER nonrootuser
+
+# Set the working directory in the container
+WORKDIR /home/nonrootuser/workspace
+
+# Copy the current directory contents into the container at the working directory
+COPY . .
+
+# Install Python dependencies from requirements.txt as non-root user
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Ensure Python can find the installed packages (add user's pip path to PATH)
+ENV PATH="/home/nonrootuser/.local/bin:${PATH}"
+
+# Default command to keep the container running in VS Code
+CMD ["sleep", "infinity"]

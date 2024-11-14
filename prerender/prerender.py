@@ -46,6 +46,7 @@ def main():
 
     if args.n_jobs == 0:
         for file in tqdm(files):
+            print("Prerendering of file",file)
             render_and_save_one_tfrecord(file, vectorizer, args.output_path, args.compress)
     else:
         pool = multiprocessing.Pool(args.n_jobs)

@@ -1,0 +1,46 @@
+# Data manipulation and scientific computing
+numpy
+pandas
+scipy
+
+# Machine learning and deep learning
+scikit-learn
+torch
+torchvision
+torchaudio
+tensorflow
+keras
+
+# Visualization
+matplotlib
+seaborn
+
+# Web frameworks and APIs
+flask
+django
+fastapi
+uvicorn
+
+# Web scraping and requests
+requests
+beautifulsoup4
+lxml
+
+# Database libraries
+SQLAlchemy
+pymysql
+psycopg2-binary
+
+# Development tools
+pylint
+black
+ipython
+
+# Jupyter notebooks
+jupyter
+jupyterlab
+notebook
+
+# Image processing
+opencv-python-headless
+tqdm
