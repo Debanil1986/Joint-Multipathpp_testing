@@ -1,0 +1,31 @@
+services:
+  multipathpp:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./original/data:/home/nonrootuser/workspace/original/data:ro
+      - ./prerendered/data:/home/nonrootuser/workspace/prerendered/data
+      - ./configs:/home/nonrootuser/workspace/configs:ro
+    environment:
+      - PYTHONPATH=/home/nonrootuser/workspace
+    user: nonrootuser
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/nonrootuser/workspace
+      - ~/.gitconfig:/home/nonrootuser/.gitconfig:ro
+    environment:
+      - PYTHONPATH=/home/nonrootuser/workspace
+    user: nonrootuser
+    stdin_open: true
+    tty: true
